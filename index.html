@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>首页</title>
+		<script>
+			var flag = 0;
+			var chendu1 = 100;
+			var t_1;
+			var num1 = -150;
+			function change1(){
+				var map1 = document.getElementById("first");
+				map1.style.top = num1 + "px";
+				num1--;
+				map1.style.opacity = chendu1 + "%";
+				chendu1-=1;
+				t_1 = window.requestAnimationFrame(change1);
+				if(chendu1<=0){
+					window.cancelAnimationFrame(t_1);
+				}	
+			}
+			var num2 = 1000;
+			var chendu2 = 100;
+			var t_2;
+			function change2(){
+				var map2 = document.getElementById("second");
+				map2.style.top = num2 + "px";
+				num2++;
+				map2.style.opacity = chendu2 + "%";
+				chendu2-=1;
+				t_2 = window.requestAnimationFrame(change2);
+				if(chendu2<=0){
+					window.cancelAnimationFrame(t_2);
+					fuxian();
+				}
+			}
+			var chendu3 = 0;
+			var t_3;
+			function fuxian(){
+				var c1 = document.getElementById("choice1");
+				var c2 = document.getElementById("choice2");
+				var c3 = document.getElementById("choice3");
+				c1.style.opacity = chendu3 + "%";
+				c2.style.opacity = chendu3 + "%";
+				c3.style.opacity = chendu3 + "%";
+				t_3 = window.requestAnimationFrame(fuxian);
+				chendu3++;
+				if(chendu3>=100){
+					window.cancelAnimationFrame(t_3);
+				}
+				
+			}
+		</script>>
+		<style>	
+			.choice{
+				top: 30%;
+				position: absolute;
+				background-size: contain;
+				display: flex;
+				width: 100%;
+				height:100%;
+				
+			}
+			.choice1{
+				background-image:url("res/50.png") ;
+				z-index: 10;
+				width: 100%;
+				background-repeat:no-repeat;
+				height:100%;
+				background-size: contain;
+			}
+			.choice2{
+				background-image:url("res/51.png") ;
+				background-size: contain;
+				background-repeat:no-repeat;
+				z-index: 11;
+				width: 100%;
+				height:100%;
+			}
+			.choice3{
+				background-image:url("res/52.png") ;
+				background-size: contain;
+				background-repeat:no-repeat;
+				z-index: 12;
+				width: 100%;
+				height:100%;
+			}				
+			#main {	
+				display: table-cell;					
+				width: 100%;
+				height: 100%;
+				min-width: 500px;
+				z-index: -10;					
+				background-image: url("res/资源 13.png");
+				background-repeat:no-repeat;
+				background-size:contain;
+				background-position: center;
+				display: flex;
+				flex-flow: column;
+				justify-content: center;
+				align-items: center;
+				padding: 0px 0px;
+				top: 10px;
+			}			
+			.xinfeng2{
+				position:absolute;	
+				background:url("res/资源 14.png");
+				background-size: contain;
+				width: 100%;
+				height:100%;
+				top: 60%;
+				background-repeat:no-repeat;
+			}
+			.xinfeng1{
+				position:absolute;	
+				background:url("res/资源 17.png");
+				background-size: contain;
+				width: 100%;
+				height:100%;
+				top:-150px;
+
+				background-repeat:no-repeat;
+			}
+			.tiao{
+				position: absolute;
+				top: 28%;
+				left: 48%;
+				color:black;
+				text-align: center;	
+				z-index: 10;
+				font-family: "微软雅黑";
+				font-size: 30px;
+				text-decoration: none;
+					
+			}
+			ul{
+				 list-style-type:none;
+			}
+		</style>
+		<link rel="stylesheet" href="css/main.css" type="text/css">
+	</head>
+
+	<body>
+		<div id="main">
+			<div id = "first" class="xinfeng1" onmousedown="change1()"> </div>
+			<div id = "choice"><div id = "choice1"></div><div id = "choice2"></div><div id = "choice3"></div></div>
+				<div class="xinfeng2" id = "second" onmousedown = "change2()">
+				</div>
+				<a class="tiao" href="index-guide1.html">导航</a>
+				
+		</div>
+	</body>
+</html>
